@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+import {ERC20} from "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
+import {Ownable} from "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
+import {AccessControl} from "lib/openzeppelin-contracts/contracts/access/AccessControl.sol";
 
-/*
-* @title RebaseToken
-* @author Sergey Kerhet
-* @notice This is a cross-chain rebase token that incentivises users to deposit into a vault and gain interest in rewards.
-* @notice The interest rate in the smart contract can only decrease 
-* @notice Each will user will have their own interest rate that is the global interest rate at the time of depositing.
-*/
+/**
+ * @title RebaseToken
+ * @author Sergey Kerhet
+ * @notice This is a cross-chain rebase token that incentivises users to deposit into a vault and gain interest in rewards.
+ * @notice The interest rate in the smart contract can only decrease
+ * @notice Each will user will have their own interest rate that is the global interest rate at the time of depositing.
+ */
 contract RebaseToken is ERC20, Ownable, AccessControl {
     error RebaseToken__InterestRateCanOnlyDecrease(uint256 currentInterestRate, uint256 newInterestRate);
 
